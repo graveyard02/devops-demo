@@ -26,3 +26,6 @@ jobs:
         run: |
           docker tag devops-demo ${{ secrets.DOCKER_USERNAME }}/devops-demo
           docker push ${{ secrets.DOCKER_USERNAME }}/devops-demo
+
+      - name: Trigger Render Deploy
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
